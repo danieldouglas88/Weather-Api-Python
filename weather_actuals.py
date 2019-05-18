@@ -9,15 +9,15 @@ print("Script began at: ", datetime.datetime.now().time())
 
 #connect to server and db 
 cnxn = pyodbc.connect("Driver={SQL Server};"
-                        "Server=devsql01;"
-                        "Database=WeatherData;"
+                        "Server=xxxx;"
+                        "Database=xxxx;"
                         "Trusted_Connection=yes;")
 
 def weather_data(zipcode, restnum):
 
     #connect to API service    
     cursor = cnxn.cursor()
-    api = requests.get('http://api.openweathermap.org/data/2.5/weather?q=' + str(zipcode) + ',us&APPID=eb4ca1116c4c216a185cf3a206635c6a')
+    api = requests.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + str(zipcode) + ',us&cnt=15&APPID=xxxxxxxxxxxx')
     api= api.json()
 
     #parse JSON values
